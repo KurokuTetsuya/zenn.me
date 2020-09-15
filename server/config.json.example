@@ -1,0 +1,5 @@
+{
+    "instagramToken": "your_instagram_graph_api_token",
+    "instagramUserID": "your_instagram_user_id",
+    "wakatimeSharedLanguage": "https://wakatime.com/share/@blabla.json"
+}

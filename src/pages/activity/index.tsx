@@ -1,5 +1,10 @@
 import React from "react";
-// import fetch from "node-fetch";
+import { get } from "superagent";
+import FadeIn from "react-fade-in";
+import Lottie from "react-lottie";
+import  * as legoData from "../../animations/lego-loader.json";
+import  * as doneData from "../../animations/done-animation.json";
+import "./style.css";
 
 interface State {
     languages: {
@@ -23,169 +28,99 @@ interface State {
             timezone: string;
         }
     }[];
+    instagram: string;
     loaded: boolean;
+    wakatimeDone: boolean;
+    instagramDone: boolean;
+    done: boolean;
     data?: string;
 }
+
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: legoData,
+    rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+    }
+}
+
+const defaultOptions2 = {
+    loop: false,
+    autoplay: true,
+    animationData: doneData,
+    rendererSettings: {
+       preserveAspectRatio: "xMidYMid slice"
+    }
+ };
+
 export class Activity extends React.Component {
     constructor(props: any) {
         super(props);
         this.state = {
             languages: [],
             activities: [],
-            loaded: false
+            instagram: "",
+            instagramDone: false,
+            wakatimeDone: false,
+            loaded: false,
+            done: undefined
         }
     }
 
-    async getWakaStats(): Promise<void> {
-        // const { body: languages } = await (await fetch("https://cors-anywhere.herokuapp.com/https://wakatime.com/share/@e54486eb-d788-4fc7-8b4f-29d15f1db897/1ea06163-3638-42b4-9259-84e2cd39ee00.json", {
-        //     headers: {
-        //         "X-Requested-With": "Fetch"
-        //     }
-        // })).json();
-        // const { body: activity } = await (await fetch("https://cors-anywhere.herokuapp.com/https://wakatime.com/share/@e54486eb-d788-4fc7-8b4f-29d15f1db897/cc2257d8-5cc1-46be-b5c1-7e98d6405e4f.json", {
-        //     headers: {
-        //         "X-Requested-With": "Fetch"
-        //     }
-        // })).json();
+    async getActivities(): Promise<void> {
+        const { body: languages } = await get("http://localhost:8585/api/wakatime/lang");
+        this.setState({ wakatimeDone: true })
+        const { body } = await get("http://localhost:8585/api/instagram");
         this.setState({
-            languages: [
-                {
-                    "color": "#563d7c",
-                    "name": "CSS",
-                    "percent": 93.76
-                },
-                {
-                    "color": "#e44b23",
-                    "name": "HTML",
-                    "percent": 6.24
-                }
-            ],
-            activities:  [
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-08",
-                        "end": "2020-09-08T16:59:59Z",
-                        "start": "2020-09-07T17:00:00Z",
-                        "text": "Tue Sep 8th 2020",
-                        "timezone": "Asia/Jakarta"
-                    }
-                },
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-09",
-                        "end": "2020-09-09T16:59:59Z",
-                        "start": "2020-09-08T17:00:00Z",
-                        "text": "Wed Sep 9th 2020",
-                        "timezone": "Asia/Jakarta"
-                    }
-                },
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-10",
-                        "end": "2020-09-10T16:59:59Z",
-                        "start": "2020-09-09T17:00:00Z",
-                        "text": "Thu Sep 10th 2020",
-                        "timezone": "Asia/Jakarta"
-                    }
-                },
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-11",
-                        "end": "2020-09-11T16:59:59Z",
-                        "start": "2020-09-10T17:00:00Z",
-                        "text": "Fri Sep 11th 2020",
-                        "timezone": "Asia/Jakarta"
-                    }
-                },
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-12",
-                        "end": "2020-09-12T16:59:59Z",
-                        "start": "2020-09-11T17:00:00Z",
-                        "text": "Sat Sep 12th 2020",
-                        "timezone": "Asia/Jakarta"
-                    }
-                },
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-13",
-                        "end": "2020-09-13T16:59:59Z",
-                        "start": "2020-09-12T17:00:00Z",
-                        "text": "Yesterday",
-                        "timezone": "Asia/Jakarta"
-                    }
-                },
-                {
-                    "grand_total": {
-                        "digital": "0:00",
-                        "hours": 0,
-                        "minutes": 0,
-                        "text": "0 secs",
-                        "total_seconds": 0
-                    },
-                    "range": {
-                        "date": "2020-09-14",
-                        "end": "2020-09-14T16:59:59Z",
-                        "start": "2020-09-13T17:00:00Z",
-                        "text": "Today",
-                        "timezone": "Asia/Jakarta"
-                    }
-                }
-            ],
+            instagram: `${body.data[0].permalink}embed`,
+            instagramDone: true,
+            languages,
             loaded: true
         });
+        setTimeout(() => this.setState({ done: true }), 1000);
     }
 
     async componentDidMount() {
-        await this.getWakaStats();
+        await this.getActivities();
     }
 
     render() {
         const state = this.state as State;
-        return (
-            <div className="container justify-content-center fixed-top">
+        if (!state.done) return (
+            <FadeIn>
+                <div className="container justify-content-center">
+                    <div className="row justify-content-center align-items-center">
+                        <div className="load-flex d-flex p-2 col-6">
+                        <h1>Fetching wakatime activity report...</h1>
+                        {!state.wakatimeDone ? (
+                            <Lottie options={defaultOptions} height={120} width={120} />
+                        ) : (
+                            <Lottie options={defaultOptions2} height={120} width={120} />
+                        )}
+                        </div>
+                        <div className="load-flex d-flex p-2 col-6">
+                        <h1>Fetching latest social media post...</h1>
+                        {!state.instagramDone ? (
+                            <Lottie options={defaultOptions} height={120} width={120} />
+                        ) : (
+                            <Lottie options={defaultOptions2} height={120} width={120} />
+                        )}
+                        </div>
+                    </div>
+                </div>
+            </FadeIn>
+        );
+        else return (
+            <div className="container justify-content-center">
+                <br/>
+                <h2 className="text-center">Latest Instagram Post</h2>
+                <br/>
+                <div className="text-center">
+                    <iframe title="Instagram Latest Post" src={state.instagram} width="320" height="425" frameBorder={0} scrolling="no" allowTransparency={true}></iframe> 
+                </div>
+                <br></br>
+                <h1 id="code-activity" className="text-center">Coding Activity</h1>
                 <div className="row d-flex-inline align-items-center">
                     <div className="col-6">
                         <iframe width="500px" height="1000px" src="https://github-readme-stats.vercel.app/api?username=kurokutetsuya&show_icons=true&count_private=true&include_all_commits=true&hide_title=true&theme=cobalt" title="Zen Github Stats" allowTransparency={true} frameBorder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
