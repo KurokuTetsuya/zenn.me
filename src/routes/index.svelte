@@ -46,7 +46,7 @@
 				<div class="text-white">
 					<h1 class="mb-3">ゼン茜 | Zen Akane</h1>
 					<div class="flex-between">
-						<a class="btn btn-outline-light btn-m" href="/sosmed">Contact Me</a>
+						<a class="btn btn-outline-light btn-m" href="mailto:zenwisteriaaa@gmail.com">Contact Me</a>
 					</div>
 				</div>
 			</div>
