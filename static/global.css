@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: url("./bg.png") no-repeat center center;
+    background-size: cover;
+}
+
+html {
+    height: 100%;
+}
