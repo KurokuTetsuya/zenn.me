@@ -28,7 +28,7 @@
 
 <div class="jumbotron" style="display: flex; align-items: center; min-height: 100%; min-height: 100vh;">
 	<div class="container p-5 text-center">
-		<div class="row ">
+		<div class="row">
 			<div class="d-flex justify-content-center align-items-center">
 				{#if avatar === undefined}
 					<img class="btn-rounded" src="logo-512.png" alt="zen logo" height="150px" width="150x">

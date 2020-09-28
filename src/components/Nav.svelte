@@ -8,15 +8,13 @@
             <i class="fas fa-align-justify text-white"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-1">
-                <a class="nav-link text-white waves-effect waves-light" href="https://discord.gg/fD5MHy9" target="_blank">Discord</a>
-            </li>
-            <li class="nav-item mx-1">
-                <a class="nav-link text-white waves-effect waves-light" href="https://instagram.com/fatir_1242" target="_blank">Instagram</a>
-            </li>
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-1">
+                    <a class="nav-link text-white" href="https://discord.gg/fD5MHy9" target="_blank">Discord</a>
+                </li>
+                <li class="nav-item mx-1">
+                    <a class="nav-link text-white" href="https://instagram.com/fatir_1242" target="_blank">Instagram</a>
+                </li>
             </ul>
         </div>
     </div>
