@@ -15,6 +15,9 @@
                 <li class="nav-item mx-1">
                     <a class="nav-link text-white" href="https://instagram.com/fatir_1242" target="_blank">Instagram</a>
                 </li>
+                <li class="nav-item mx-1">
+                    <a class="nav-link text-white" href="https://github.com/KurokuTetsuya" target="_blank">GitHub</a>
+                </li>
             </ul>
         </div>
     </div>
