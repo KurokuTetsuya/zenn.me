@@ -2,10 +2,31 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: url("./bg.png") no-repeat center center;
+    background: url("./bg.jpg") no-repeat center;
+    background-attachment: fixed;
     background-size: cover;
 }
 
 html {
     height: 100%;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #212121;
+    border-radius: 10px;
+    border-radius: 0 !important;
+}
+  
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(3, 169, 244, 0.3);
+    border-radius: 0 !important;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(3, 169, 244, 0.3);
+    border-radius: 0 !important;
 }

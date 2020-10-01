@@ -1,54 +1,14 @@
-<script>
-	import { get } from "superagent";
-	async function getAvatar() {
-		const { body } = await get("https://api.frutbits.xyz/fetchUser?id=725331428962992131");
-		let ava = body.result.displayAvatarURL;
-		// Try Gif
-		try {
-			await get(ava.replace(".webp", ".gif"));
-			ava = ava.replace(".webp", ".gif")
-		} catch {
-			ava = body.result.displayAvatarURL;
-		}
-		return ava;
-	}
-	let avatar = getAvatar();
-</script>
-<svelte:head>
-	<title>Home | Zen</title>
-	<meta name="title" content="Home | Zen">
-	{#await avatar}
-	<!-- Nothing here -->
-	{:then value}
-	<meta property="og:image" content={value}>
-	<link rel="shortcut icon" type="image/{value.endsWith(".gif") ? "gif" : "png"}" href={value}/>
-	<link rel="icon" type="image/{value.endsWith(".gif") ? "gif" : "png"}" href={value}>
-	{/await}
-</svelte:head>
-
-<div class="jumbotron" style="display: flex; align-items: center; min-height: 100%; min-height: 100vh;">
-	<div class="container p-5 text-center">
-		<div class="row">
-			<div class="d-flex justify-content-center align-items-center">
-				{#if avatar === undefined}
-					<img class="btn-rounded" src="logo-512.png" alt="zen logo" height="150px" width="150x">
-				{:else}
-					{#await avatar}
-					<img class="btn-rounded" src="logo-512.png" alt="zen logo" height="150px" width="150x">
-					{:then value}
-					<img class="btn-rounded" src={value} alt="zen logo" height="150px" width="150x">
-					{:catch error}
-						{error.message}
-					{/await}
-				{/if}
+<div class="jumbotron d-flex align-items-center min-vh-100 text-white">
+	<div class="container">
+		<div style="display: flex; justify-content: space-between;">
+			<div class="flex-column">
+				<h1>FrutBits Indonesia</h1>
+				<p>Sebuah komunitas Discord dari Indonesia bertemakan	
+				general, gaming dan lain lain!
+				</p>
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-5 h-100">
-				<div class="text-white">
-					<h1 class="mb-3">ゼン茜 | Zen Akane</h1>
-					<div class="flex-between">
-						<a class="btn btn-outline-light btn-m" href="mailto:zenwisteriaaa@gmail.com">Contact Me</a>
-					</div>
-				</div>
+			<div>
+				<iframe title="Discord Widget" src="https://discordapp.com/widget?id=715165490246582313&amp;theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
 	</div>
