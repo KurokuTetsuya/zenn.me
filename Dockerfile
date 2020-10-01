@@ -1,8 +1,8 @@
 FROM node:12-alpine
 
-LABEL name "Zen-Website"
+LABEL name "Frutbits-Website"
 
-WORKDIR /usr/zen-website
+WORKDIR /usr/frutbits-website
 
 COPY . .
 
