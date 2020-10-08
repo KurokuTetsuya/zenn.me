@@ -1,6 +1,6 @@
 {
-  "name": "zenn.me",
-  "description": "My personal website",
+  "name": "frutbits-website",
+  "description": "Website for frutbits.xyz using svelte as framework",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",

@@ -16,7 +16,7 @@
                     <a class="nav-link text-white" href="https://github.com/KurokuTetsuya" target="_blank">GitHub</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link text-white" href="https://gitlab.com/ZenAkane">GitLab</a>
+                    <a class="nav-link text-white" href="https://gitlab.com/ZenAkane">GitLab</a> 
                 </li>
             </ul>
         </div>
