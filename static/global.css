@@ -2,7 +2,7 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: url("./bg.jpg") no-repeat center;
+    background: url("./bg.png") no-repeat center;
     background-attachment: fixed;
     background-size: cover;
 }
